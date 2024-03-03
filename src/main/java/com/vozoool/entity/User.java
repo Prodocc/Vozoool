@@ -10,7 +10,7 @@ public class User {
     private String surname;
     private String email;
     private String password;
-    private UserType userType;
+    private final UserType userType;
     private final int ID;
 
     public String getName() {
@@ -52,6 +52,9 @@ public class User {
             case 2:
                 this.userType = UserType.SELLER;
                 break;
+            default:
+                this.userType = UserType.CUSTOMER;
+                System.out.println("ERROR");
         }
 
         ID = (Math.abs(this.hashCode()));
