@@ -5,9 +5,9 @@ import com.vozoool.entity.User;
 import java.sql.*;
 
 public class App00 {
-    private static final String URL = "jdbc:mysql://localhost:3306/vozoool";
-    private static final String NAME = "root";
-    private static final String PASSWORD = "12345";
+    public static final String URL = "jdbc:mysql://localhost:3306/vozoool";
+    public static final String NAME = "root";
+    public static final String PASSWORD = "123456";
 
     public static void main(String[] args) throws SQLException {
         Connection connection = DriverManager.getConnection(URL, NAME, PASSWORD);

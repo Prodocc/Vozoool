@@ -1,41 +1,20 @@
 package com.vozoool.entity;
 
 import com.vozoool.enums.UserType;
+import lombok.Getter;
 import lombok.ToString;
 
 import java.util.Objects;
+
+@Getter
 @ToString
 public class User {
-    private String name;
-    private String surname;
-    private String email;
-    private String password;
+    private final String name;
+    private final String surname;
+    private final String email;
+    private final String password;
     private final UserType userType;
     private final int ID;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public int getID() {
-        return ID;
-    }
 
     public User(String name, String surname, String email, String password, int userType) {
         this.name = name;
@@ -53,18 +32,29 @@ public class User {
                 this.userType = UserType.SELLER;
                 break;
             default:
-                this.userType = UserType.CUSTOMER;
+                this.userType = UserType.UNKNOWN;
                 System.out.println("ERROR");
         }
 
         ID = (Math.abs(this.hashCode()));
     }
 
-    //TODO Rewrite hashcode for ID
     @Override
-    public int hashCode() {
-        return Objects.hash(email);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return ID == user.ID;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID);
+    }
+
+    public static void main(String[] args) {
+        User user = new User("", "", "test@mail.ru", "", 0);
+        System.out.println(user.getEmail());
+    }
 }
 
