@@ -1,0 +1,12 @@
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" name="ConfigTest">
+    <Appenders>
+        <Console name="Out">
+            <PatternLayout pattern="%m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="Out"/>
+        </Root>
+    </Loggers>
+</Configuration>
